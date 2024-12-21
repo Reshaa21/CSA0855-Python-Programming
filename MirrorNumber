@@ -1,0 +1,8 @@
+# Get input from the user
+number = input("Enter the number: ")
+
+# Reverse the number
+mirror_image = number[::-1]
+
+# Output the mirror image
+print("Mirror image:", mirror_image)
