@@ -1,0 +1,24 @@
+def find_sum_and_difference(lst, M, N):
+    # Sort the list in ascending order
+    lst.sort()
+    
+    # Mth maximum is the Mth largest number, which is at index -M (from the end)
+    Mth_max = lst[-M]
+    
+    # Nth minimum is the Nth smallest number, which is at index N-1
+    Nth_min = lst[N-1]
+    
+    # Calculate the sum and difference
+    result_sum = Mth_max + Nth_min
+    result_diff = Mth_max - Nth_min
+    
+    return result_sum, result_diff
+
+# Example usage:
+lst = [12, 5, 7, 10, 18, 3]
+M = 2
+N = 3
+result_sum, result_diff = find_sum_and_difference(lst, M, N)
+
+print("Sum:", result_sum)       # Output: Sum of Mth max and Nth min
+print("Difference:", result_diff) # Output: Difference between Mth max and Nth min
