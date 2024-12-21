@@ -1,0 +1,15 @@
+# Function to calculate the shipping charge
+def calculate_shipping(num_items):
+    if num_items == 1:
+        return 750
+    else:
+        return 750 + (num_items - 1) * 200
+
+# Get input from the user
+num_items = int(input("Enter the number of items purchased: "))
+
+# Calculate the shipping charge
+shipping_charge = calculate_shipping(num_items)
+
+# Display the shipping charge formatted to 2 decimal places
+print(f"{shipping_charge:.2f}")
