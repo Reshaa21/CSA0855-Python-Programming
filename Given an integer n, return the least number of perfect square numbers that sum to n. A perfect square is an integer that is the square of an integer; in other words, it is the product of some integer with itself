@@ -1,0 +1,19 @@
+import math
+
+def numSquares(n: int) -> int:
+    # Initialize dp array, where dp[i] is the least number of perfect squares that sum to i
+    dp = [float('inf')] * (n + 1)
+    dp[0] = 0  # Base case: 0 perfect squares sum to 0
+    
+    # Precompute all perfect squares <= n
+    for i in range(1, n + 1):
+        j = 1
+        while j * j <= i:
+            dp[i] = min(dp[i], dp[i - j * j] + 1)
+            j += 1
+    
+    return dp[n]
+
+# Example usage:
+n = 12
+print(numSquares(n))  # Output: 3 (since 12 = 4 + 4 + 4)
