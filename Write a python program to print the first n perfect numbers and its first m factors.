@@ -1,0 +1,35 @@
+# Function to find factors of a number
+def find_factors(num):
+    factors = []
+    # Loop from 1 to num to find factors
+    for i in range(1, num + 1):
+        if num % i == 0:
+            factors.append(i)
+    return factors
+
+# Function to check if a number is perfect
+def is_perfect(num):
+    # Find divisors and sum them (excluding the number itself)
+    sum_of_divisors = sum(i for i in range(1, num) if num % i == 0)
+    return sum_of_divisors == num
+
+# Function to print the first n perfect numbers and their first m factors
+def print_perfect_numbers_and_factors(n, m):
+    # Start checking for perfect numbers
+    perfect_count = 0
+    num = 6  # The first perfect number is 6
+    while perfect_count < n:
+        if is_perfect(num):
+            # Find factors for the perfect number
+            factors = find_factors(num)
+            # Print the first m factors
+            print(f"First {m} Factors of {num} are: {', '.join(map(str, factors[:m]))}")
+            perfect_count += 1
+        num += 1  # Check the next number
+
+# Input from the user
+n = int(input("Enter the number of perfect numbers (N): "))
+m = int(input("Enter the number of factors to print (M): "))
+
+# Call the function to print perfect numbers and factors
+print_perfect_numbers_and_factors(n, m)
