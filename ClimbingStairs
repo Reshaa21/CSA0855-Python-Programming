@@ -1,0 +1,22 @@
+def climbStairs(n):
+    # Base cases
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 1
+    
+    # Initialize the base cases for DP
+    first = 1  # ways to reach step 0
+    second = 1  # ways to reach step 1
+    
+    # Calculate ways to reach each step from 2 to n
+    for i in range(2, n + 1):
+        current = first + second
+        first = second
+        second = current
+    
+    return second
+
+# Test Case
+n = 2
+print(climbStairs(n))  # Output: 2
