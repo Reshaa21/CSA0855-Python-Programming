@@ -1,0 +1,20 @@
+# Function to print the pattern
+def print_pattern(start, max_lines):
+    current_num = start  # Initialize the starting number
+    
+    # Loop through each line
+    for i in range(1, max_lines + 1):
+        # Print i numbers in the current line
+        for j in range(i):
+            print(f"{current_num:.1f}", end=" ")  # Print the number with one decimal place
+            current_num += 0.1  # Increment the number by 0.1
+        
+        # Move to the next line
+        print()
+
+# Input from the user
+start_num = float(input("Enter the starting number: "))
+max_lines = int(input("Max number of line printed: "))
+
+# Call the function to print the pattern
+print_pattern(start_num, max_lines)
