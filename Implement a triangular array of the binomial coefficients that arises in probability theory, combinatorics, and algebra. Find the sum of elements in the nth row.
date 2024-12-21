@@ -1,0 +1,15 @@
+# Function to calculate the sum of elements in the nth row of Pascal's Triangle
+def sum_of_row(n):
+    return 2 ** n
+
+# Get input from the user
+num_rows = int(input("Enter the number of rows: "))
+row_number = int(input("Enter the row number: "))
+
+# Check if the row number is valid
+if row_number >= 0 and row_number < num_rows:
+    # Calculate the sum of elements in the specified row
+    result = sum_of_row(row_number)
+    print(f"Sum of elements in {row_number}th row: {result}")
+else:
+    print("Invalid row number!")
