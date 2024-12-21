@@ -1,0 +1,29 @@
+def maxProfit(prices):
+    n = len(prices)
+    if n <= 1:
+        return 0  # No profit if there is 1 or no price
+
+    # Create two arrays to store maximum profits for one and two transactions
+    profit1 = [0] * n
+    profit2 = [0] * n
+    
+    # Initialize variables to track the minimum price for the first and second transactions
+    min_price1 = prices[0]
+    min_price2 = prices[0]
+    
+    # Calculate maximum profit for the first transaction
+    for i in range(1, n):
+        profit1[i] = max(profit1[i-1], prices[i] - min_price1)  # Max profit for 1 transaction up to i
+        min_price1 = min(min_price1, prices[i])  # Update min_price1 for future transactions
+    
+    # Calculate maximum profit for the second transaction
+    for i in range(1, n):
+        profit2[i] = max(profit2[i-1], prices[i] - min_price2 + profit1[i-1])  # Max profit for 2 transactions
+        min_price2 = min(min_price2, prices[i] - profit1[i-1])  # Update min_price2 considering previous profit1
+    
+    # The answer is the maximum profit with at most 2 transactions by the end of the last day
+    return profit2[n-1]
+
+# Test Case
+prices = [7, 1, 5, 3, 6, 4]
+print(maxProfit(prices))  # Output: 7
