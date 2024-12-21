@@ -1,0 +1,19 @@
+# Constants
+regular_price = 185
+day_old_discount = 0.60  # 60% discount
+
+# Input: Number of loaves purchased
+fresh_loaves = int(input("Enter the number of fresh loaves purchased: "))
+day_old_loaves = int(input("Enter the number of day old loaves purchased: "))
+
+# Calculations
+fresh_total = fresh_loaves * regular_price
+day_old_price = regular_price * (1 - day_old_discount)  # Price after discount
+day_old_total = day_old_loaves * day_old_price
+total_amount = fresh_total + day_old_total
+
+# Output with proper formatting
+print(f"Regular price: Rs.{regular_price:.2f}")
+print(f"Amount of new loaves: {fresh_total:.2f}")
+print(f"Amount of day old loaves: {day_old_total:.2f}")
+print(f"Total amount: Rs. {total_amount:.2f}")
