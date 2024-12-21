@@ -1,0 +1,31 @@
+def count_characters():
+    lower_count = 0
+    upper_count = 0
+    number_count = 0
+
+    print("Enter * to exit...")
+    
+    while True:
+        char = input("Enter any character: ")
+
+        # Check if the character is '*', if so, exit the loop
+        if char == '*':
+            break
+        
+        # Check if the character is a lowercase letter
+        if char.islower():
+            lower_count += 1
+        # Check if the character is an uppercase letter
+        elif char.isupper():
+            upper_count += 1
+        # Check if the character is a digit
+        elif char.isdigit():
+            number_count += 1
+
+    # Output the results
+    print(f"Total count of lower case: {lower_count}")
+    print(f"Total count of upper case: {upper_count}")
+    print(f"Total count of numbers = {number_count}")
+
+# Run the program
+count_characters()
